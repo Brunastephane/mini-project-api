@@ -2,6 +2,9 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import "dotenv/config";
+import { Book } from "./entities/Book";
+import { INIT1676482122483 } from "./migrations/1676482122483-INIT"
+
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -12,6 +15,6 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME,
     synchronize: false,
     logging: false,
-    entities: [__dirname + "/entities/*.ts"],
-    migrations: [__dirname + "/migrations/*.ts"]
+    entities: [Book],     
+    migrations:[INIT1676482122483]
 });

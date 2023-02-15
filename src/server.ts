@@ -3,9 +3,10 @@ import routes from "./routes";
 import cors from "cors";
 import { AppDataSource } from "./data-source";
 import "reflect-metadata";
+import "dotenv/config";
 
 const app = express();
-const port = 4000;
+const port = process.env.SERVER_PORT;
 
 // establish database connection
 AppDataSource.initialize()
@@ -18,7 +19,7 @@ AppDataSource.initialize()
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "*"],
+    origin: [process.env.REACT_APP, "*"],
     credentials: true,
     exposedHeaders: "set-cookie",
     allowedHeaders: [
