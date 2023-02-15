@@ -1,8 +1,36 @@
 import express, { Request, Response } from "express";
 import routes from "./routes";
+import cors from "cors";
+import { AppDataSource } from "./data-source";
+import "reflect-metadata";
 
 const app = express();
 const port = 4000;
+
+// establish database connection
+AppDataSource.initialize()
+  .then(() => {
+    console.log("Data Source has been initialized!");
+  })
+  .catch((err) => {
+    console.error("Error during Data Source initialization:", err);
+  });
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "*"],
+    credentials: true,
+    exposedHeaders: "set-cookie",
+    allowedHeaders: [
+      "Origin",
+      "X-Requested-With",
+      "Content-Type",
+      "Accept",
+      "X-Access-Token",
+      "Authorization",
+    ],
+  })
+);
 
 app.use(express.json());
 app.use(routes);
