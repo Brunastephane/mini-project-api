@@ -1,11 +1,20 @@
 import { Router, Request, Response } from "express";
+import { bookController } from "./controllers/bookController";
 
 const routes = Router();
 
+//Data from DB using TypeORM
+routes.get("/getBooks", new bookController().getBooks)
+routes.get("/getBook", new bookController().getBook)
+routes.post("/addBook", new bookController().addBook)
+routes.put("/editBook", new bookController().editBook)
+routes.delete("/deleteBook", new bookController().deleteBook)
+
+
+//Data from Variable inside API
 routes.get("/booksFromAPI", (req: Request, res: Response) => {
   return res.status(201).json(booksQuery);
 });
-
 routes.get("/selectedBook", (req: Request, res: Response) => {
   const id = req.body.id;
   return res.status(201).json(booksQuery[id]);

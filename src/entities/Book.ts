@@ -1,10 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Book{
 
     @PrimaryGeneratedColumn()
-    id:Number;
+    id:number;
 
     @Column({nullable:false})
     bookName:string;
@@ -17,5 +17,8 @@ export class Book{
     
     @Column({nullable:false})
     bookLink:string;
+
+    @CreateDateColumn()
+    created_at:Date
 
 }
