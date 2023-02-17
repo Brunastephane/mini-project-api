@@ -18,6 +18,9 @@ export class Book{
     @Column({nullable:false})
     bookLink:string;
 
+    @Column({nullable:true})
+    bookLikes:number;
+
     @CreateDateColumn()
     created_at:Date
 

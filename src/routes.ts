@@ -1,5 +1,7 @@
 import { Router, Request, Response } from "express";
 import { bookController } from "./controllers/bookController";
+import { contactControler } from "./controllers/contactController";
+import { commentController } from "./controllers/commentController";
 
 const routes = Router();
 
@@ -9,7 +11,10 @@ routes.get("/getBook", new bookController().getBook)
 routes.post("/addBook", new bookController().addBook)
 routes.put("/editBook", new bookController().editBook)
 routes.delete("/deleteBook", new bookController().deleteBook)
-
+routes.get("/getContacts", new contactControler().getContacts)
+routes.post("/addContact", new contactControler().addContact)
+routes.get("/getComments", new commentController().getComments)
+routes.post("/addComment", new commentController().addComment)
 
 //Data from Variable inside API
 routes.get("/booksFromAPI", (req: Request, res: Response) => {
