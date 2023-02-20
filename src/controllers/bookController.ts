@@ -91,4 +91,24 @@ export class bookController {
       return res.status(500).json(error);
     }
   }
+
+  async changeLikes(req: Request, res: Response) {
+    try {
+      const { bookLikes, id } = req.body;
+      if (!id) {
+        return res.status(400).json({ message: "Missing some parameters" });
+      } else {
+        const book = await bookRepository.findOneBy({ id: id });
+
+        book.bookLikes = bookLikes;
+
+        await bookRepository.save(book);
+
+        return res.status(201).json(book);
+      }
+    } catch (error) {
+      return res.status(500).json(error);
+    }
+  }
+
 }
