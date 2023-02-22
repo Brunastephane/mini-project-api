@@ -13,7 +13,8 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME,
     synchronize: false,
     logging: false,    
-    entities: [__dirname + "/entities/*.ts"],
-    migrations: [__dirname + "/migrations/*.ts"]
+    //entities: [Book, Comment, Contact], VERCEL ONLY
+    entities: [__dirname + "/entities/*{.ts,.js}"],
+    migrations: [__dirname + "/migrations/*{.ts,.js}"]
 
 });
