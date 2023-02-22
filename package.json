@@ -7,6 +7,7 @@
     "node": "18.x"
   },
   "scripts": {
+    "build": "tsc -p ./",
     "start:dev": "nodemon --exec ts-node ./api/index.ts",
     "start": "npx ts-node ./api/index.ts",
     "migration:generate": "typeorm-ts-node-esm -d ./api/data-source.ts migration:generate",
