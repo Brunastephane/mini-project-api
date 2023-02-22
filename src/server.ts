@@ -19,7 +19,7 @@ AppDataSource.initialize()
 
 app.use(
   cors({
-    origin: [process.env.REACT_APP, "*"],
+    origin: "*",
     credentials: true,
     exposedHeaders: "set-cookie",
     allowedHeaders: [

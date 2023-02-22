@@ -8,7 +8,7 @@ export class bookController {
       const books = await bookRepository.find();
 
       /*API Status:
-            201 = ok
+            201 = ok(created)
             400 = missing parameters
             500 = internal server error
             */
