@@ -19,7 +19,7 @@ AppDataSource.initialize()
 
 app.use(
   cors({
-    origin: ["https://brunastephane.github.io/mini-project-web/","*"],
+    origin: ["https://brunastephane.github.io", "http://localhost:3000", "*"],
     credentials: true,
     exposedHeaders: "set-cookie",
     allowedHeaders: [
