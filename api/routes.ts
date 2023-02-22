@@ -6,16 +6,16 @@ import { commentController } from "./controllers/commentController";
 const routes = Router();
 
 //Data from DB using TypeORM
-routes.get("/getBooks", new bookController().getBooks)
-routes.get("/getBook", new bookController().getBook)
-routes.post("/addBook", new bookController().addBook)
-routes.put("/editBook", new bookController().editBook)
-routes.put("/changeLikes", new bookController().changeLikes)
-routes.delete("/deleteBook", new bookController().deleteBook)
-routes.get("/getContacts", new contactControler().getContacts)
-routes.post("/addContact", new contactControler().addContact)
-routes.get("/getComments", new commentController().getComments)
-routes.post("/addComment", new commentController().addComment)
+routes.get("api/getBooks", new bookController().getBooks)
+routes.get("api/getBook", new bookController().getBook)
+routes.post("api/addBook", new bookController().addBook)
+routes.put("api/editBook", new bookController().editBook)
+routes.put("api/changeLikes", new bookController().changeLikes)
+routes.delete("api/deleteBook", new bookController().deleteBook)
+routes.get("api/getContacts", new contactControler().getContacts)
+routes.post("api/addContact", new contactControler().addContact)
+routes.get("api/getComments", new commentController().getComments)
+routes.post("api/addComment", new commentController().addComment)
 
 //Data from Variable inside API
 routes.get("/booksFromAPI", (req: Request, res: Response) => {
