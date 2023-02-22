@@ -2,9 +2,6 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import "dotenv/config";
-import { Book } from "./entities/Book";
-import { Contact } from "./entities/Contact";
-import { Comment } from "./entities/Comment";
 
 
 export const AppDataSource = new DataSource({
@@ -16,8 +13,8 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME,
     synchronize: false,
     logging: false,    
-    entities: [Book, Comment, Contact], //Vercel ONly
-    //entities: [__dirname + "/entities/*{.ts,.js}"], //All other hosts
+    //entities: [Book, Comment, Contact], //Vercel ONly
+    entities: [__dirname + "/entities/*{.ts,.js}"], //All other hosts
     migrations: [__dirname + "/migrations/*{.ts,.js}"]
 
 });
